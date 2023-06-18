@@ -5,7 +5,9 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    var user = {
+    this.user = new Path(username);
+
+    const user = {
       username: username,
       password: password,
   };
@@ -23,8 +25,15 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
         response.json()
           .then(data => {
-            console.log(data);
+            localStorage.setItem("refresh", data.refresh);
+            localStorage.setItem("access", data.access);
+            localStorage.setItem("username", username);
+            // console.log(localStorage.getItem("refresh"));
+            // console.log(localStorage.getItem("access"));
           })
+      alert('Login successful!');
+      window.location.href = "description.html";
+
       }else{
         alert('Login failed. Please check your username and password.');
       }
@@ -35,5 +44,12 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         console.error(error);
     });
   
-    alert('Login successful!');
   });
+
+class Path{
+  constructor(username){
+    this.username = username;
+    this.path = "http://127.0.0.1:8000/api/user/" + this.usernaame;
+  }
+}
+

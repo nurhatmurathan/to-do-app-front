@@ -26,6 +26,14 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         },
         body: JSON.stringify(user)
     })
+    .then(response => {
+        if(response.ok){
+            alert('Registration successful!');
+            window.location.href = "login.html";
+        }else{
+            alert('Registration filed!');
+        }
+    })
     .catch(error => {
         
         alert("An error occurred. Please try again later.");
@@ -33,6 +41,5 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     });
   
 
-    alert('Registration successful!');
-    window.location.href = "login.html";
+   
   });

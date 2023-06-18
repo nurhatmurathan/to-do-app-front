@@ -63,7 +63,7 @@ input[type="password"] {
     padding: 5px;
 }
   
-button[type="submit"] {
+button {
     width: 100%;
     padding: 10px;
     background-color: #4CAF50;
@@ -72,6 +72,10 @@ button[type="submit"] {
     cursor: pointer;
 }
   
-button[type="submit"]:hover {
+button:hover {
     background-color: #45a049;
+}
+
+span{
+    color: #1eac25;
 }
