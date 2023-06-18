@@ -1,36 +1,39 @@
 document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault(); 
   
-    // Retrieve form values
+    
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
+
+    var user = {
+      username: username,
+      password: password,
+  };
   
-    // Perform login logic (e.g., send data to server for authentication)
-    fetch("http://127.0.0.1:8000/api/user/?username=" + username + "&password=" + password)
-  .then(response => {
-    if (response.ok) {
-      // Handle successful login
-      alert('Login successful!');
-      
-      // Access and print the response JSON
-      response.json()
-        .then(data => {
-          console.log(data); // Print the JSON data to the browser console
-          // You can further process the data as needed
-        })
-        .catch(error => {
-          console.error('Error parsing JSON:', error);
-        });
-    } else {
-      // Handle login error
-      alert('Login failed. Please check your username and password.');
-    }
-  })
-  .catch(error => {
-    // Handle network or other errors
-    alert('An error occurred. Please try again later.');
-    console.error(error);
-  });
+    
+    fetch("http://127.0.0.1:8000/api/token/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+    .then(response => {
+      if(response.ok){
+
+        response.json()
+          .then(data => {
+            console.log(data);
+          })
+      }else{
+        alert('Login failed. Please check your username and password.');
+      }
+    })
+    .catch(error => {
+        
+        alert("An error occurred. Please try again later.");
+        console.error(error);
+    });
   
     alert('Login successful!');
   });

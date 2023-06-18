@@ -1,13 +1,13 @@
 document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault(); 
   
-    // Retrieve form values
+    
     var username = document.getElementById('name').value;
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     var confirmPassword = document.getElementById('confirmPassword').value;
   
-    // Perform form validation
+    
     if (password !== confirmPassword) {
         alert('Passwords do not match!');
         return;
@@ -27,17 +27,12 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         body: JSON.stringify(user)
     })
     .catch(error => {
-        // Handle network or other errors
+        
         alert("An error occurred. Please try again later.");
         console.error(error);
     });
   
-    // Reset form fields
-    // document.getElementById('name').value = '';
-    // document.getElementById('email').value = '';
-    // document.getElementById('password').value = '';
-    // document.getElementById('confirmPassword').value = '';
-  
+
     alert('Registration successful!');
     window.location.href = "login.html";
   });
