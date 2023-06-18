@@ -42,7 +42,9 @@ fetch("http://127.0.0.1:8000/api/user/", {
                 .then(data =>{
                     // console.log(data);
                     const cont = document.getElementById("users");
+                    const us =localStorage.getItem("username");
                     for(let i = 0; i < data.length; i++){
+                        if(us == data[i].username)continue;
                         u = document.createElement("div");
                         a = document.createElement("a");
                         a.textContent = i+1 + ". " + data[i].username;
@@ -87,6 +89,6 @@ var timer = setTimeout(function() {
     .catch(error => {
         console.error(error);
     });
-  },  30 * 1000);
+  }, 5 * 60 * 1000);
 
 
