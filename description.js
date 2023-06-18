@@ -37,6 +37,7 @@ fetch("http://127.0.0.1:8000/api/user/", {
     .then(response => {
         if(response.ok){
             
+            
             response.json()
                 .then(data =>{
                     // console.log(data);
@@ -86,6 +87,6 @@ var timer = setTimeout(function() {
     .catch(error => {
         console.error(error);
     });
-  },  60 * 1000);
+  },  30 * 1000);
 
 
