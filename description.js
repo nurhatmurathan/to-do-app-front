@@ -43,11 +43,12 @@ fetch("http://127.0.0.1:8000/api/user/", {
                     // console.log(data);
                     const cont = document.getElementById("users");
                     const us =localStorage.getItem("username");
+                    let j = 1;
                     for(let i = 0; i < data.length; i++){
                         if(us == data[i].username)continue;
                         u = document.createElement("div");
                         a = document.createElement("a");
-                        a.textContent = i+1 + ". " + data[i].username;
+                        a.textContent = j++ + ". " + data[i].username;
                         u.append(a);
                         cont.append(u);
                     }
@@ -58,8 +59,8 @@ fetch("http://127.0.0.1:8000/api/user/", {
     });
 
 
-var timer = setTimeout(function() {
-    console.log("Access new");
+var timer = setInterval(function() {
+    // console.log("Access new");
 
     refresh = {
         "refresh": localStorage.getItem("refresh")

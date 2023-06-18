@@ -33,12 +33,12 @@ document.getElementById('EditForm').addEventListener('submit', function(event) {
             localStorage.setItem("username", username);
             window.location.href = "description.html";
         }else{
-            alert('Update filed!');
+            alert(response.json.data.email);
         }
     })
     .catch(error => {
         
-        alert("An error occurred. Please try again later.");
+        alert("An error occurred.");
         console.error(error);
     });
   
