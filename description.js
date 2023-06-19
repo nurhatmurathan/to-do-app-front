@@ -1,5 +1,5 @@
 
-const pathGet = "http://127.0.0.1:8000/api/user/" + localStorage.getItem("username") + "/";
+const pathGet = "http://muratkan.pythonanywhere.com/api/user/" + localStorage.getItem("username") + "/";
 
 fetch(pathGet, {
         method: "GET",
@@ -26,7 +26,7 @@ fetch(pathGet, {
 
 
 
-fetch("http://127.0.0.1:8000/api/user/", {
+fetch("http://muratkan.pythonanywhere.com/api/user/", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -66,7 +66,7 @@ var timer = setInterval(function() {
         "refresh": localStorage.getItem("refresh")
     }
 
-    fetch("http://127.0.0.1:8000/api/refresh/", {
+    fetch("http://muratkan.pythonanywhere.com/api/refresh/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -93,3 +93,9 @@ var timer = setInterval(function() {
   }, 5 * 60 * 1000);
 
 
+function logout(){
+    localStorage.setItem("refresh", null);
+    localStorage.setItem("access", null);
+    localStorage.setItem("username", null);
+    window.location.href = "index.html";
+}

@@ -19,7 +19,7 @@ document.getElementById('EditForm').addEventListener('submit', function(event) {
         password: password,
     };
 
-    fetch("http://127.0.0.1:8000/api/user/" + localStorage.getItem("username") + "/", {
+    fetch("http://muratkan.pythonanywhere.com/api/user/" + localStorage.getItem("username") + "/", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

@@ -5,15 +5,13 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    this.user = new Path(username);
-
     const user = {
       username: username,
       password: password,
   };
   
     
-    fetch("http://127.0.0.1:8000/api/token/", {
+    fetch("http://muratkan.pythonanywhere.com/api/token/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -46,10 +44,4 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
   
   });
 
-class Path{
-  constructor(username){
-    this.username = username;
-    this.path = "http://127.0.0.1:8000/api/user/" + this.usernaame;
-  }
-}
 
