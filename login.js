@@ -11,7 +11,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
   };
   
     
-    fetch("http://muratkan.pythonanywhere.com/api/token/", {
+    fetch("https://muratkan.pythonanywhere.com/api/token/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

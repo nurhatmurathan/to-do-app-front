@@ -1,5 +1,5 @@
 
-const pathGet = "http://muratkan.pythonanywhere.com/api/user/" + localStorage.getItem("username") + "/";
+const pathGet = "https://muratkan.pythonanywhere.com/api/user/" + localStorage.getItem("username") + "/";
 
 fetch(pathGet, {
         method: "GET",
@@ -26,7 +26,7 @@ fetch(pathGet, {
 
 
 
-fetch("http://muratkan.pythonanywhere.com/api/user/", {
+fetch("https://muratkan.pythonanywhere.com/api/user/", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -66,7 +66,7 @@ var timer = setInterval(function() {
         "refresh": localStorage.getItem("refresh")
     }
 
-    fetch("http://muratkan.pythonanywhere.com/api/refresh/", {
+    fetch("https://muratkan.pythonanywhere.com/api/refresh/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
